@@ -17,7 +17,7 @@ public class Start {
 		int counter;
 		
 		if (args.length == 0) {
-			counter = 1500;
+			counter = 100;
 		} else {
 			counter = Integer.valueOf(args[0]);			
 		}		 

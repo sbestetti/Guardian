@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import com.guardian.monitor.model.Register;
-import com.guardian.monitor.tools.Logger;
 
 @Named
 @ApplicationScoped
@@ -18,12 +17,7 @@ public class RegisterDao {
 	
 	@Transactional
 	public void add(Register register) {
-		try {
-			em.persist(register);			
-		} catch (Exception e) {
-			Logger.logSystem("Database error");
-		}
-		
+		em.persist(register);		
 	}
 
 }

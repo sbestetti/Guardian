@@ -28,8 +28,12 @@ public class Listener {
 		register.setTag(event.getTag());
 		register.setTimestamp(new Date());
 		Logger.logEvent(event);
-		dao.add(register);
-		return Response.status(200).build();		
+		try {
+			dao.add(register);
+			return Response.status(200).build();
+		} catch (Exception e) {
+			return Response.status(400).entity("Event not saved. Check SystemLog.txt").build();			
+		}
 	}
 
 }

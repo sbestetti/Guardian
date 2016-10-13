@@ -6,15 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity (name = "registers")
 public class Register {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.SEQUENCE)
 	private Long id;
+	@NotNull
 	private Long sensorId;
+	@NotNull
 	private Long tag;
+	@NotNull
 	private Date timestamp;
 	
 	//Getters & Setters

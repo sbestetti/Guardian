@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html>
-	<head>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
 		<meta charset="ISO-8859-1"></meta>
 		<title>Guardian - Login</title>
-	</head>
-	<body>
-		<h1>Guardian System</h1>
-		$('#stepExample1').timepicker({ 'step': 15 });
-	</body>
+	</h:head>
+	<h:body>
+		<div id="title">
+			<h1>Guardian System</h1>
+		</div>
+		<div id="loginForm">
+			<h:form>
+				<h:outputLabel for="login" value="Login"></h:outputLabel>
+				<h:inputText id="login" value="#{loginBean.login}"></h:inputText>
+				<br></br>
+				<h:outputLabel for="password" value="Password"></h:outputLabel>
+				<h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
+				<br></br>
+				<h:commandButton value="Login" action="#{loginBean.logon}"></h:commandButton>
+			</h:form>
+		</div>
+	</h:body>
 </html>

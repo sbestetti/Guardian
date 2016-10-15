@@ -1,8 +1,6 @@
 package com.guardian.business.mb;
 
-import java.io.Serializable;
-
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -10,13 +8,14 @@ import com.guardian.business.model.Teacher;
 import com.guardian.business.security.LoginUtil;
 
 @Named
-@SessionScoped
-public class LoginBean implements Serializable{
+@RequestScoped
+public class LoginBean {
 	
-	private static final long serialVersionUID = 8263656888700343703L;
-
 	@Inject
 	private LoginUtil loginUtil;
+	
+	@Inject
+	LoggedUserBean loggedUserBean;
 	
 	private String login;
 	private String password;
@@ -28,6 +27,7 @@ public class LoginBean implements Serializable{
 			loggedTeacher = new Teacher();
 			return "index.xhtml?faces-redirect=true";
 		}
+		loggedUserBean.setLoggedUser(loggedTeacher);
 		return "main.xhtml?faces-redirect=true";		
 	}
 	

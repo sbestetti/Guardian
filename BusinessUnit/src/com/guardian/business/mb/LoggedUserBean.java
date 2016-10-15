@@ -13,7 +13,7 @@ public class LoggedUserBean implements Serializable {
 
 	private static final long serialVersionUID = 529518194677898594L;
 	
-	private Teacher loggedUser;
+	private Teacher loggedUser = null;
 	
 	//Getters & Setters
 	public Teacher getLoggedUser() {

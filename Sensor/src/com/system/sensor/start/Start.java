@@ -28,7 +28,7 @@ public class Start {
 		
 		Date start = new Date();
 		
-		String url = "http://localhost:8080/Monitor/api/listener";				
+		String url = "http://localhost:8080/monitor/api/listener";				
 		
 		System.out.println("Registering. Please wait...");
 		

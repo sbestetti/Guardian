@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta charset="ISO-8859-1"></meta>
+		<title>Guardian - Add user</title>
+	</h:head>
+	<h:body>
+		<div id="title">
+			<h1>Guardian System</h1>
+			<h2>Add new user</h2>
+		</div>
+		<div id="addUserForm">
+			<h:form>
+				<h:outputLabel for="login" value="Login"></h:outputLabel>
+				<h:inputText id="login" value="#{addUserBean.teacher.login}" required="true" requiredMessage="Mandatory field"></h:inputText>
+				<h:message for="login"></h:message>
+				<br></br>
+				<h:outputLabel for="password" value="Password"></h:outputLabel>
+				<h:inputText id="password" value="#{addUserBean.teacher.password}" required="true" requiredMessage="Mandatory field"></h:inputText>
+				<h:message for="password"></h:message>
+				<br></br>
+				<h:outputLabel for="name" value="Name:"></h:outputLabel>
+				<h:inputText id="name" value="#{addUserBean.teacher.name}" required="true" requiredMessage="Mandatory field"></h:inputText>
+				<h:message for="name"></h:message>
+				<br></br>
+				<h:outputLabel for="email" value="Email"></h:outputLabel>
+				<h:inputText id="email" value="#{addUserBean.teacher.email}"></h:inputText>
+				<br></br>
+				<h:outputLabel for="phone" value="Phone"></h:outputLabel>
+				<h:inputText id="phone" value="#{addUserBean.teacher.phone}"></h:inputText>
+				<br></br>
+				<h:commandButton value="Add user" action="#{addUserBean.addUser}"></h:commandButton>
+				<h:commandButton value="Cancel" action="#{addUserBean.cancel}"></h:commandButton>
+			</h:form>
+		</div>
+	</h:body>
+</html>

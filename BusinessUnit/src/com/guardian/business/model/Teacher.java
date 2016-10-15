@@ -1,5 +1,7 @@
 package com.guardian.business.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +24,8 @@ public class Teacher {
 	private String email;
 	
 	private String phone;
+	
+	private Date created;
 	
 	//Getters & Setters
 	public Long getId() {
@@ -59,6 +63,12 @@ public class Teacher {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public Date getCreated() {
+		return created;
+	}
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 	
 }

@@ -19,13 +19,13 @@ public class AddUserBean {
 	public String addUser() {
 		int result = dao.addTeacher(teacher);		
 		if (result == 0) {
-			return "index.xhtml?faces-redirect=true";
+			return "main.xhtml?faces-redirect=true";
 		}
 		return null;
 	}
 	
 	public String cancel() {
-		return "index.xhtml?faces-redirect=true";
+		return "main.xhtml?faces-redirect=true";
 	}
 
 	//Getters & Setters

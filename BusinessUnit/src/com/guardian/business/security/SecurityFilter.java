@@ -26,6 +26,7 @@ public class SecurityFilter implements PhaseListener {
 		if (loggedUserbean.getLoggedUser() == null) {
 			NavigationHandler handler = context.getApplication().getNavigationHandler();
 			handler.handleNavigation(context, null, "index.xhtml?faces-redirect=true");
+			context.renderResponse();
 		}
 	}
 

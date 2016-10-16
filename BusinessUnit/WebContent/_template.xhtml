@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<ui:insert name="head-meta">
+			<meta name="viewport" content="width=device-width"></meta>	
+		</ui:insert>
+		<title>Guardian</title>
+		<link rel="stylesheet" href="resources/css/_template.css"/>
+		<link rel="stylesheet" href="resources/css/_template_mobile.css" media="(max-width: 768px)"/>
+	</h:head>	
+	
+	<h:body>
+		<div id="header">
+			<h1>Guardian</h1>
+			<div id="headerMenu">
+				<ul>
+					<li>Registros
+						<ul>
+							<li>
+								Alunos
+								<ul>
+									<li>Pesquisar</li>
+									<li>Alterar/Excluir</li>
+									<li>Adicionar</li>									
+								</ul>
+							</li>
+							<li>
+								Professores
+								<ul>
+									<li>Pesquisar</li>
+									<li>Alterar/Excluir</li>
+									<li>Adicionar</li>									
+								</ul>
+							</li>
+							<li>
+								Turmas
+								<ul>
+									<li>Pesquisar</li>
+									<li>Alterar/Excluir</li>
+									<li>Adicionar</li>									
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Relatórios
+						<ul>
+							<li>Alunos ausentes</li>
+							<li>Presença individual</li>
+						</ul>
+					</li>		
+				</ul>
+			</div>
+		</div>
+		<div id="body">
+			<ui:insert name="content" />
+		</div>
+		<div id="footer">
+			<p>Footer</p>
+		</div>
+	</h:body>
+</html>

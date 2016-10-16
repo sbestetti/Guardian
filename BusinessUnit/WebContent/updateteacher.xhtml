@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	  
+	<h:head>
+		<meta charset="ISO-8859-1"></meta>
+		<title>Guardian - Busca professor</title>
+	</h:head>	
+	
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Busca de professores</h2>
+			</div>
+			<div id="findUserForm">
+				<h:form>
+					<h:outputLabel for="name" value="Nome:"></h:outputLabel>
+					<h:inputText id="name" value="#{updateUserBean.nameToSearch}" required="true" requiredMessage="Mandatory field"></h:inputText>
+					<h:message for="name"></h:message>
+					<br></br>
+					<h:commandButton value="Busca" action="#{updateUserBean.findTeachers}"></h:commandButton>
+				</h:form>
+			</div>
+			<div id="findUserResult">
+				<h:form>
+					<h:dataTable rendered="#{updateUserBean.showResults}" var="teacher" value="#{updateUserBean.resultList}">
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							#{teacher.name}
+						</h:column>					
+					</h:dataTable>
+				</h:form>
+			</div>
+		</ui:define>		
+	</ui:composition>		
+</html>

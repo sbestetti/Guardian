@@ -1,6 +1,7 @@
 package com.guardian.business.dao;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -43,6 +44,18 @@ public class TeacherDao {
 		teacher.setCreated(new Date());
 		em.persist(teacher);
 		return 0;
+	}
+	
+	public List<Teacher> getTeachersByName(String name) {
+		String jpql = "SELECT t FROM teachers t WHERE name LIKE :pname";
+		TypedQuery<Teacher> query = em.createQuery(jpql, Teacher.class);
+		query.setParameter("pname", "%" + name + "%");
+		//TODO Remove SYSO
+		List<Teacher> list = query.getResultList();
+		for (Teacher teacher : list) {
+			System.out.println("Nome: " + teacher.getName());
+		}
+		return query.getResultList();
 	}
 
 }

@@ -25,6 +25,15 @@ public class TeacherDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Transactional
+	public int addTeacher(Teacher teacher) {
+		String hashedPassword = loginUtil.hashPassword(teacher.getPassword());
+		teacher.setPassword(hashedPassword);
+		teacher.setCreated(new Date());
+		em.persist(teacher);
+		return 0;
+	}
+	
 	public Teacher getTeacherByLogin(String login) {
 		String jpql = "SELECT t FROM teachers t WHERE t.login = :plogin";
 		TypedQuery<Teacher> query = em.createQuery(jpql, Teacher.class);
@@ -37,25 +46,14 @@ public class TeacherDao {
 		}		
 	}
 	
-	@Transactional
-	public int addTeacher(Teacher teacher) {
-		String hashedPassword = loginUtil.hashPassword(teacher.getPassword());
-		teacher.setPassword(hashedPassword);
-		teacher.setCreated(new Date());
-		em.persist(teacher);
-		return 0;
-	}
 	
 	public List<Teacher> getTeachersByName(String name) {
 		String jpql = "SELECT t FROM teachers t WHERE name LIKE :pname";
 		TypedQuery<Teacher> query = em.createQuery(jpql, Teacher.class);
 		query.setParameter("pname", "%" + name + "%");
-		//TODO Remove SYSO
-		List<Teacher> list = query.getResultList();
-		for (Teacher teacher : list) {
-			System.out.println("Nome: " + teacher.getName());
-		}
 		return query.getResultList();
 	}
+	
+	
 
 }

@@ -12,12 +12,12 @@
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="content">
 			<div id="title">
-				<h2>Adicionar professores</h2>
+				<h2>Adicionar aluno</h2>
 			</div>
-			<div id="addUserForm">
+			<div id="addStudentForm">
 				<h:form>
-					<h:outputLabel for="login" value="Login"></h:outputLabel>
-					<h:inputText id="login" value="#{addUserBean.teacher.login}" required="true" requiredMessage="Mandatory field"></h:inputText>
+					<h:outputLabel for="name" value="Nome"></h:outputLabel>
+					<h:inputText id="name" value="#{addUserBean.teacher.login}" required="true" requiredMessage="Mandatory field"></h:inputText>
 					<h:message for="login"></h:message>
 					<br></br>
 					<h:outputLabel for="password" value="Senha"></h:outputLabel>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	  
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Gerenciar professores</h2>
+			</div>
+			<div id="formTeachersSearch">
+				<h:form>
+					<h:outputLabel for="nameToSearch" value="Name"></h:outputLabel>
+					<h:inputText id="nameToSearch" value="#{teachersBean.nameToSearch}"></h:inputText>
+					<h:commandButton action="#{teachersBean.updateResults}" value="Buscar"></h:commandButton>
+				</h:form>			
+			</div>
+			<div id="formTeachersResult">
+				<h:form rendered="#{teachersBean.showResults}">
+					<h:dataTable value="#{teachersBean.results}" var="thisTeacher">
+						<h:column>
+							<f:facet name="header">
+								Nome
+							</f:facet>
+						</h:column>
+						<h:column>
+							<h:commandLink value="#{thisTeacher.name}" action="#{teachersBean.editTeacher(thisTeacher)}"></h:commandLink>							
+						</h:column>					
+					</h:dataTable>
+				</h:form>
+			</div>
+			<div id="formTeachersEdit">
+				<h:form rendered="#{teachersBean.showEditForm}">
+					<h:outputLabel for="login" value="Login"></h:outputLabel>
+					<h:inputText id="login" value="#{teachersBean.teacherToEdit.login}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
+					<h:message for="login"></h:message>
+					<br></br>
+					<h:outputLabel for="password" value="Senha"></h:outputLabel>
+					<h:inputText id="password" value="#{teachersBean.teacherToEdit.password}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
+					<h:message for="password"></h:message>
+					<br></br>
+					<h:outputLabel for="name" value="Nome:"></h:outputLabel>
+					<h:inputText id="name" value="#{teachersBean.teacherToEdit.name}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
+					<h:message for="name"></h:message>
+					<br></br>
+					<h:outputLabel for="email" value="Email"></h:outputLabel>
+					<h:inputText id="email" value="#{teachersBean.teacherToEdit.email}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="phone" value="Telefone"></h:outputLabel>
+					<h:inputText id="phone" value="#{teachersBean.teacherToEdit.phone}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
+					<br></br>
+					<h:commandButton value="Editar" action="#{teachersBean.enableEditFields}"></h:commandButton>
+					<h:commandButton value="Salvar" action="#{teachersBean.enableEditFields}" rendered="#{not teachersBean.disableEditFields}"></h:commandButton>
+					<h:commandButton value="Cancelar" action="#{teachersBean.cancelEdit}" rendered="#{not teachersBean.disableEditFields}"></h:commandButton>
+				</h:form>
+			
+			</div>
+		</ui:define>		
+	</ui:composition>
+			
+</html>

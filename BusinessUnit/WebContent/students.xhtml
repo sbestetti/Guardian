@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	  
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Gerenciar estudantes</h2>
+			</div>
+			<div id="formStudentSearch">
+				<h:form>
+					<h:outputLabel for="nameToSearch" value="Name"></h:outputLabel>
+					<h:inputText id="nameToSearch" value="#{studentsBean.nameToSearch}"></h:inputText>
+					<h:commandButton action="#{studentsBean.updateResults}" value="Buscar"></h:commandButton>
+				</h:form>			
+			</div>
+			<div id="formStudentsResult">
+				<h:form rendered="#{studentsBean.showResults}">
+					<h:dataTable value="#{studentsBean.searchResults}" var="thisStudent">
+						<h:column>
+							<f:facet name="header">
+								Nome
+							</f:facet>
+							<h:commandLink value="#{thisStudent.name}" action="#{studentsBean.editStudent(thisStudent)}"></h:commandLink>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								Turma
+							</f:facet>
+							<h:commandLink value="#{thisStudent.studyClass}" action="#{teachersBean.editTeacher(thisTeacher)}"></h:commandLink>
+						</h:column>					
+					</h:dataTable>
+				</h:form>
+			</div>
+			<div id="formStudentsEdit">
+				<h:form rendered="#{studentsBean.showEditForm}">
+					<h:outputLabel for="name" value="Nome:"></h:outputLabel>
+					<h:inputText id="name" value="#{studentsBean.studentToEdit.name}" disabled="#{studentsBean.disableEditFields}"></h:inputText>
+					<h:message for="name"></h:message>
+					<br></br>
+					<h:outputLabel for="studyClass" value="Turma"></h:outputLabel>
+					<h:inputText id="studyClass" value="#{studentsBean.studentToEdit.studyClass}" disabled="#{studentsBean.disableEditFields}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="parents" value="Pais"></h:outputLabel>
+					<h:inputText id="parents" value="#{studentsBean.studentToEdit.parents}" disabled="#{studentsBean.disableEditFields}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="contactInfo" value="Informações de contato"></h:outputLabel>
+					<h:inputTextarea id="contactInfo" value="#{studentsBean.studentToEdit.contactInfo}" disabled="#{studentsBean.disableEditFields}"></h:inputTextarea>
+					<br></br>
+					<h:commandButton value="Editar" action="#{studentsBean.enableEditFields}"></h:commandButton>
+					<h:commandButton value="Salvar" action="#{teachersBean.saveEdit}" rendered="#{not studentsBean.disableEditFields}"></h:commandButton>
+					<h:commandButton value="Cancelar" action="#{teachersBean.cancelEdit}" rendered="#{not studentsBean.disableEditFields}"></h:commandButton>
+				</h:form>			
+			</div>
+		</ui:define>		
+	</ui:composition>
+			
+</html>

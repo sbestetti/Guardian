@@ -23,9 +23,10 @@
 							<f:facet name="header">
 								Nome
 							</f:facet>
+							<h:commandLink value="#{thisTeacher.name}" action="#{teachersBean.editTeacher(thisTeacher)}"></h:commandLink>
 						</h:column>
 						<h:column>
-							<h:commandLink value="#{thisTeacher.name}" action="#{teachersBean.editTeacher(thisTeacher)}"></h:commandLink>							
+														
 						</h:column>					
 					</h:dataTable>
 				</h:form>

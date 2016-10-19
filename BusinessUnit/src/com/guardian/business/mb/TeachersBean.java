@@ -1,6 +1,5 @@
 package com.guardian.business.mb;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -12,10 +11,8 @@ import com.guardian.business.model.Teacher;
 
 @ManagedBean
 @ViewScoped
-public class TeachersBean implements Serializable{
+public class TeachersBean {
 	
-	private static final long serialVersionUID = -7237143706799126055L;
-
 	@Inject
 	private TeacherDao dao;
 	
@@ -42,6 +39,11 @@ public class TeachersBean implements Serializable{
 	
 	public String cancelEdit() {
 		return "main.xhtml?faces-redirect=true";
+	}
+	
+	public String saveEdit() {
+		dao.update(teacherToEdit);
+		return "teachers.xhtml?faces-redirect=true";
 	}
 
 	//Getters & Setters

@@ -54,6 +54,9 @@ public class TeacherDao {
 		return query.getResultList();
 	}
 	
-	
+	@Transactional
+	public void update(Teacher updatedInfo) {
+		em.merge(updatedInfo);	
+	}
 
 }

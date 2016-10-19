@@ -32,14 +32,6 @@
 			</div>
 			<div id="formTeachersEdit">
 				<h:form rendered="#{teachersBean.showEditForm}">
-					<h:outputLabel for="login" value="Login"></h:outputLabel>
-					<h:inputText id="login" value="#{teachersBean.teacherToEdit.login}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
-					<h:message for="login"></h:message>
-					<br></br>
-					<h:outputLabel for="password" value="Senha"></h:outputLabel>
-					<h:inputText id="password" value="#{teachersBean.teacherToEdit.password}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
-					<h:message for="password"></h:message>
-					<br></br>
 					<h:outputLabel for="name" value="Nome:"></h:outputLabel>
 					<h:inputText id="name" value="#{teachersBean.teacherToEdit.name}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
 					<h:message for="name"></h:message>
@@ -51,10 +43,9 @@
 					<h:inputText id="phone" value="#{teachersBean.teacherToEdit.phone}" disabled="#{teachersBean.disableEditFields}"></h:inputText>
 					<br></br>
 					<h:commandButton value="Editar" action="#{teachersBean.enableEditFields}"></h:commandButton>
-					<h:commandButton value="Salvar" action="#{teachersBean.enableEditFields}" rendered="#{not teachersBean.disableEditFields}"></h:commandButton>
+					<h:commandButton value="Salvar" action="#{teachersBean.saveEdit}" rendered="#{not teachersBean.disableEditFields}"></h:commandButton>
 					<h:commandButton value="Cancelar" action="#{teachersBean.cancelEdit}" rendered="#{not teachersBean.disableEditFields}"></h:commandButton>
-				</h:form>
-			
+				</h:form>			
 			</div>
 		</ui:define>		
 	</ui:composition>

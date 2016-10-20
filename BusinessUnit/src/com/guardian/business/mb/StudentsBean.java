@@ -2,11 +2,13 @@ package com.guardian.business.mb;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import com.guardian.business.dao.StudentDao;
+import com.guardian.business.dao.StudyClassDao;
 import com.guardian.business.model.Student;
 
 @ManagedBean
@@ -15,6 +17,9 @@ public class StudentsBean {
 	
 	@Inject
 	private StudentDao dao;
+	
+	@Inject
+	private StudyClassDao classDao;
 		
 	private String nameToSearch;
 	private List<Student> searchResults;
@@ -23,6 +28,19 @@ public class StudentsBean {
 	private Boolean disableEditFields = true;
 	private Student studentToEdit;
 	private Student studentToAdd = new Student();
+	private Long tagToAdd;
+	private List<Long> listOfTags;
+	private List<String> listOfClasses;
+	
+	@PostConstruct
+	private void populateListOfClasses() {
+		listOfClasses = classDao.getClassesNames();
+	}
+	
+	
+	public void addTags() {
+		listOfTags.add(tagToAdd);
+	}
 	
 	public String addStudent() {
 		dao.addStudent(studentToAdd);
@@ -104,6 +122,32 @@ public class StudentsBean {
 
 	public void setStudentToAdd(Student studentToAdd) {
 		this.studentToAdd = studentToAdd;
+	}
+
+	public List<Long> getListOfTags() {
+		return listOfTags;
+	}
+
+	public void setListOfTags(List<Long> listOfTags) {
+		this.listOfTags = listOfTags;
+	}
+
+	public Long getTagToAdd() {
+		return tagToAdd;
+	}
+
+	public void setTagToAdd(Long tagToAdd) {
+		this.tagToAdd = tagToAdd;
+	}
+
+
+	public List<String> getListOfClasses() {
+		return listOfClasses;
+	}
+
+
+	public void setListOfClasses(List<String> listOfClasses) {
+		this.listOfClasses = listOfClasses;
 	}	
 
 }

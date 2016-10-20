@@ -15,13 +15,19 @@
 					<h:inputText id="name" value="#{studentsBean.studentToAdd.name}"></h:inputText>
 					<br></br>
 					<h:outputLabel for="studyClass" value="Turma"></h:outputLabel>
-					<h:inputText id="studyClass" value="#{studentsBean.studentToAdd.studyClass}"></h:inputText>
+					<h:selectOneMenu value="#{studentsBean.studentToAdd.studyClass}">
+						<f:selectItems value="#{studentsBean.listOfClasses}"></f:selectItems>					
+					</h:selectOneMenu>
 					<br></br>
 					<h:outputLabel for="parents" value="Pais"></h:outputLabel>
 					<h:inputText id="parents" value="#{studentsBean.studentToAdd.parents}"></h:inputText>
 					<br></br>
 					<h:outputLabel for="contact" value="Informações de contato"></h:outputLabel>
-					<h:inputTextarea id="contact" value="#{studentsBean.studentToAdd.contactInfo}"></h:inputTextArea>
+					<h:inputTextarea id="contact" value="#{studentsBean.studentToAdd.contactInfo}"></h:inputTextarea>
+					<br></br>
+					<h:outputLabel for="addTag" value="Adicionar uma Tag"></h:outputLabel>
+					<h:inputText id="addTag" value="#{studentsBean.tagToAdd}"></h:inputText>
+					<h:commandButton value="Salva Tag" action="#{studentsBean.addTags}"></h:commandButton>
 					<br></br>
 					<h:commandButton value="Adiciona" action="#{studentsBean.addStudent}"></h:commandButton>
 				</h:form>			

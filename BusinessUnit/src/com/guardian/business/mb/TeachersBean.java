@@ -22,6 +22,12 @@ public class TeachersBean {
 	private Boolean showEditForm = false;
 	private Boolean disableEditFields = true;
 	private Teacher teacherToEdit = new Teacher();
+	private Teacher teacherToAdd = new Teacher();
+	
+	public String addTeacher() {
+		dao.addTeacher(teacherToAdd);
+		return "main.xhtml?faces-redirect=true";
+	}
 	
 	public void updateResults() {
 		results = dao.getTeachersByName(nameToSearch);
@@ -93,6 +99,14 @@ public class TeachersBean {
 
 	public void setTeacherToEdit(Teacher teacherToEdit) {
 		this.teacherToEdit = teacherToEdit;
+	}
+
+	public Teacher getTeacherToAdd() {
+		return teacherToAdd;
+	}
+
+	public void setTeacherToAdd(Teacher teacherToAdd) {
+		this.teacherToAdd = teacherToAdd;
 	}	
 	
 }

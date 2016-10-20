@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	  
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Adicionar aluno</h2>
+			</div>
+			<div id="formTeacherAdd">
+				<h:form>
+					<h:outputLabel for="name" value="Nome"></h:outputLabel>
+					<h:inputText id="name" value="#{studentsBean.studentToAdd.name}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="studyClass" value="Turma"></h:outputLabel>
+					<h:inputText id="studyClass" value="#{studentsBean.studentToAdd.studyClass}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="parents" value="Pais"></h:outputLabel>
+					<h:inputText id="parents" value="#{studentsBean.studentToAdd.parents}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="contact" value="Informações de contato"></h:outputLabel>
+					<h:inputTextarea id="contact" value="#{studentsBean.studentToAdd.contactInfo}"></h:inputTextArea>
+					<br></br>
+					<h:commandButton value="Adiciona" action="#{studentsBean.addStudent}"></h:commandButton>
+				</h:form>			
+			</div>
+		</ui:define>		
+	</ui:composition>			
+</html>

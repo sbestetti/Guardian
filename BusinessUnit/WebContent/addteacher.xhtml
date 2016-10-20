@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	  
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Adicionar professor</h2>
+			</div>
+			<div id="formTeacherAdd">
+				<h:form>
+					<h:outputLabel for="login" value="Login"></h:outputLabel>
+					<h:inputText id="login" value="#{teachersBean.teacherToAdd.login}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="password" value="Password"></h:outputLabel>
+					<h:inputText id="password" value="#{teachersBean.teacherToAdd.password}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="name" value="Nome"></h:outputLabel>
+					<h:inputText id="name" value="#{teachersBean.teacherToAdd.name}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="email" value="Email"></h:outputLabel>
+					<h:inputText id="email" value="#{teachersBean.teacherToAdd.email}"></h:inputText>
+					<br></br>
+					<h:outputLabel for="phone" value="Fone"></h:outputLabel>
+					<h:inputText id="phone" value="#{teachersBean.teacherToAdd.phone}"></h:inputText>
+					<br></br>
+					<h:commandButton value="Adiciona" action="#{teachersBean.addTeacher}"></h:commandButton>
+				</h:form>			
+			</div>
+		</ui:define>		
+	</ui:composition>			
+</html>

@@ -29,6 +29,12 @@
 					<h:inputText id="addTag" value="#{studentsBean.tagToAdd}"></h:inputText>
 					<h:commandButton value="Salva Tag" action="#{studentsBean.addTags}"></h:commandButton>
 					<br></br>
+					<h:dataTable value="#{studentsBean.tagToAdd}" var="tag">
+						<h:column>
+							#{tag}
+						</h:column>
+						
+					</h:dataTable>
 					<h:commandButton value="Adiciona" action="#{studentsBean.addStudent}"></h:commandButton>
 				</h:form>			
 			</div>

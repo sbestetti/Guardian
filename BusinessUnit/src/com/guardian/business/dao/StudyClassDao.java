@@ -7,6 +7,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import com.guardian.business.model.StudyClass;
 
@@ -28,6 +29,11 @@ public class StudyClassDao {
 		TypedQuery<StudyClass> query = em.createQuery(jpql, StudyClass.class);
 		query.setParameter("pid", id);
 		return query.getSingleResult();		
+	}
+	
+	@Transactional
+	public void addStudyClass(StudyClass studyClass) {
+		em.persist(studyClass);
 	}
 
 }

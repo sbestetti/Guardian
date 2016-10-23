@@ -25,7 +25,7 @@
 					<br></br>
 					<p:outputLabel for="studentsToAdd" value="Alunos"></p:outputLabel>
 					<p:pickList id="studentsToAdd" value="#{studyClassBean.studentListModel}" var="student" itemLabel="#{student.name}" itemValue="#{student}"></p:pickList>
-					<h:commandButton value="Adiciona" action="#{studentsBean.addStudent}"></h:commandButton>
+					<h:commandButton value="Adiciona" action="#{studyClassBean.addClass}"></h:commandButton>
 				</h:form>			
 			</div>
 		</ui:define>		

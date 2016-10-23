@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.primefaces.model.DualListModel;
 
 import com.guardian.business.dao.StudentDao;
+import com.guardian.business.dao.StudyClassDao;
 import com.guardian.business.model.Student;
 import com.guardian.business.model.StudyClass;
 
@@ -20,6 +21,10 @@ public class StudyClassBean {
 	
 	@Inject
 	private StudentDao studentDao;
+	
+	@Inject
+	private StudyClassDao classDao;
+	
 	private StudyClass classToAdd = new StudyClass();
 	private DualListModel<Student> studentListModel = new DualListModel<>();
 		
@@ -29,6 +34,11 @@ public class StudyClassBean {
 		List<Student> studentTarget = new ArrayList<>();
 		studentListModel.setSource(studentSource);
 		studentListModel.setTarget(studentTarget);
+	}
+	
+	public String addClass() {
+		classDao.addStudyClass(classToAdd);
+		return "addclass.xhtml?faces-redirect=true";
 	}
 
 	//Getters & Setters

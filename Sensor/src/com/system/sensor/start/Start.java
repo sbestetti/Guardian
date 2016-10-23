@@ -25,10 +25,7 @@ public class Start {
 		event.setSensorId(Long.valueOf(sensorId));
 		event.setTag(Long.valueOf(tag));
 		String json = new ParserJson().parse(event);
-		Sender.send(con, json);			
-				
-		System.out.println("Event registered");
-
+		Sender.send(con, json);
 	}
 
 }

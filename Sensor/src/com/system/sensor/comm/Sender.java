@@ -13,7 +13,7 @@ public class Sender {
 			writer = new OutputStreamWriter(myConnection.getOutputStream());
 			writer.write(json);
 			writer.flush();
-			System.out.println("HTTP Response: " + myConnection.getResponseCode());
+			System.out.println("HTTP Response: " + myConnection.getResponseCode() + " - " + myConnection.getResponseMessage());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}				

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"													
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
+	
+	<h:head></h:head>  
+	
+	<ui:composition template="/_template.xhtml">
+		<ui:define name="content">
+			<div id="title">
+				<h2>Adicionar turma</h2>
+			</div>
+			<div id="formTeacherAdd">
+				<h:form>
+					<h:outputLabel for="name" value="Nome"></h:outputLabel>
+					<h:inputText id="name" value="#{studyClassBean.classToAdd.description}"></h:inputText>
+					<br></br>
+					<p:outputLabel for="startTime" value="Horário de início"></p:outputLabel>
+					<p:calendar id="startTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.classToAdd.startTime}"></p:calendar>
+					<br></br>
+					<p:outputLabel for="endTime" value="Horário de término"></p:outputLabel>
+					<p:calendar id="endTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.classToAdd.endTime}"></p:calendar>
+					<br></br>
+					<p:outputLabel for="studentsToAdd" value="Alunos"></p:outputLabel>
+					<p:pickList id="studentsToAdd" value="#{studyClassBean.studentListModel}" var="student" itemLabel="#{student.name}" itemValue="#{student}"></p:pickList>
+					<h:commandButton value="Adiciona" action="#{studentsBean.addStudent}"></h:commandButton>
+				</h:form>			
+			</div>
+		</ui:define>		
+	</ui:composition>			
+</html>

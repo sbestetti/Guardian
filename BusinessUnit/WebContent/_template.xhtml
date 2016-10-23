@@ -2,7 +2,8 @@
 <html	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"													
 		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
 
 	<h:head>
 		<ui:insert name="head-meta">
@@ -17,40 +18,25 @@
 		<div id="header">
 			<h1>Guardian</h1>
 			<div id="headerMenu">
-				<ul>
-					<li>Registros
-						<ul>
-							<li>
-								Alunos
-								<ul>
-									<li><a href="students.xhtml">Busca</a></li>
-									<li><a href="addstudent.xhtml">Adicionar</a></li>																		
-								</ul>
-							</li>
-							<li>
-								Professores
-								<ul>
-									<li><a href="teachers.xhtml">Busca</a></li>
-									<li><a href="addteacher.xhtml">Adicionar</a></li>									
-								</ul>
-							</li>
-							<li>
-								Turmas
-								<ul>
-									<li>Pesquisar</li>
-									<li>Alterar/Excluir</li>
-									<li>Adicionar</li>									
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>Relatórios
-						<ul>
-							<li>Alunos ausentes</li>
-							<li>Presença individual</li>
-						</ul>
-					</li>		
-				</ul>
+				<p:menubar>
+					<p:submenu label="Alunos">
+						<p:menuitem value="Busca" url="students.xhtml"></p:menuitem>
+						<p:menuitem value="Adicionar" url="addstudent.xhtml"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Professores">
+						<p:menuitem value="Busca" url="teachers.xhtml"></p:menuitem>
+						<p:menuitem value="Adicionar" url="addteacher.xhtml"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Turmas">
+						<p:menuitem value="Busca" url="#"></p:menuitem>
+						<p:menuitem value="Adicionar" url="addclass.xhtml"></p:menuitem>
+					</p:submenu>
+					<p:submenu label="Relatórios">
+						<p:menuitem value="Alunos ausentes" url="#"></p:menuitem>
+						<p:menuitem value="Presença individual" url="#"></p:menuitem>
+						<p:menuitem value="Últimas leituras" url="#"></p:menuitem>
+					</p:submenu>
+				</p:menubar>				
 			</div>
 		</div>
 		<div id="body">

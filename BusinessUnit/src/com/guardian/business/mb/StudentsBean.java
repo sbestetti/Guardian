@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import com.guardian.business.dao.StudentDao;
 import com.guardian.business.dao.StudyClassDao;
 import com.guardian.business.model.Student;
+import com.guardian.business.model.StudyClass;
 
 @ManagedBean
 @ViewScoped
@@ -29,12 +30,13 @@ public class StudentsBean {
 	private Student studentToEdit;
 	private Student studentToAdd = new Student();
 	private Long tagToAdd;
+	private Long classToAdd;
 	private List<Long> listOfTags;
-	private List<String> listOfClasses;
+	private List<StudyClass> listOfClasses;
 	
 	@PostConstruct
 	private void populateListOfClasses() {
-		listOfClasses = classDao.getClassesNames();
+		listOfClasses = classDao.getClasses();
 	}
 	
 	
@@ -43,7 +45,7 @@ public class StudentsBean {
 	}
 	
 	public String addStudent() {
-		dao.addStudent(studentToAdd);
+		dao.addStudent(studentToAdd, classToAdd);
 		return "main.xhtml?faces-redirect=true";
 	}
 	
@@ -141,13 +143,23 @@ public class StudentsBean {
 	}
 
 
-	public List<String> getListOfClasses() {
+	public List<StudyClass> getListOfClasses() {
 		return listOfClasses;
 	}
 
 
-	public void setListOfClasses(List<String> listOfClasses) {
+	public void setListOfClasses(List<StudyClass> listOfClasses) {
 		this.listOfClasses = listOfClasses;
+	}
+
+
+	public Long getClassToAdd() {
+		return classToAdd;
+	}
+
+
+	public void setClassToAdd(Long classToAdd) {
+		this.classToAdd = classToAdd;
 	}	
 
 }

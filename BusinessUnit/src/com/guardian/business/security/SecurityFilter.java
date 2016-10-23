@@ -19,7 +19,7 @@ public class SecurityFilter implements PhaseListener {
 	@Override
 	public void afterPhase(PhaseEvent event) {
 		FacesContext context = event.getFacesContext();
-		if ("/index.xhtml".equals(context.getViewRoot().getViewId())) {
+		if ("/index.xhtml".equals(context.getViewRoot().getViewId())/* || "/addteacher.xhtml".equals(context.getViewRoot().getViewId())*/) {
 			return;
 		}
 		

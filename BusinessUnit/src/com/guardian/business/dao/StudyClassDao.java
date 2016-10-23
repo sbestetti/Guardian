@@ -1,6 +1,5 @@
 package com.guardian.business.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -18,15 +17,17 @@ public class StudyClassDao {
 	@PersistenceContext
 	private EntityManager em;
 	
-	public List<String> getClassesNames() {
+	public List<StudyClass> getClasses() {
 		String jpql = "SELECT c FROM classes c";
 		TypedQuery<StudyClass> query = em.createQuery(jpql, StudyClass.class);
-		List<StudyClass> fullList = query.getResultList();
-		List<String> result = new ArrayList<>();
-		for (StudyClass studyClass : fullList) {
-			result.add(studyClass.getDescription());
-		}
-		return result;		
+		return query.getResultList();				
+	}
+	
+	public StudyClass getClassById(Long id) {
+		String jpql = "SELECT c FROM classes c WHERE id=:pid";
+		TypedQuery<StudyClass> query = em.createQuery(jpql, StudyClass.class);
+		query.setParameter("pid", id);
+		return query.getSingleResult();		
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.guardian.business.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,11 +18,11 @@ public class StudyClass {
 	
 	private String description;
 	
-	private String startTime;
+	private Date startTime;
 	
-	private String endTime;
+	private Date endTime;
 	
-	@OneToMany
+	@OneToMany (mappedBy = "studyClass")
 	private List<Student> students;
 
 	//Getters & Setters
@@ -41,19 +42,19 @@ public class StudyClass {
 		this.description = description;
 	}
 
-	public String getStartTime() {
+	public Date getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(String startTime) {
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
 
-	public String getEndTime() {
+	public Date getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(String endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 

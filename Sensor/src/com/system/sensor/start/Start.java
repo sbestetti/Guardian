@@ -2,6 +2,7 @@ package com.system.sensor.start;
 
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.util.Date;
 
 import com.system.sensor.comm.GetConnection;
 import com.system.sensor.comm.Sender;
@@ -24,6 +25,7 @@ public class Start {
 		HttpURLConnection con = GetConnection.withString(url);
 		event.setSensorId(Long.valueOf(sensorId));
 		event.setTag(Long.valueOf(tag));
+		event.setTimestamp(new Date());
 		String json = new ParserJson().parse(event);
 		Sender.send(con, json);
 	}

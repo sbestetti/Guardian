@@ -17,6 +17,7 @@ public class RegisterDao {
 	
 	@Transactional
 	public void add(Register register) {
+		System.out.println(register.getTimestamp());
 		em.persist(register);		
 	}
 

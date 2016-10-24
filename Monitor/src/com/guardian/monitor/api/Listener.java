@@ -1,7 +1,5 @@
 package com.guardian.monitor.api;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -36,12 +34,13 @@ public class Listener {
 		}
 		register.setSensor(sensor);
 		register.setTag(event.getTag());
-		register.setTimestamp(new Date());
+		register.setTimestamp(event.getTimestamp());
 		Logger.logEvent(event);
 		try {
 			registerDao.add(register);
 			return Response.status(200).build();
 		} catch (Exception e) {
+			e.printStackTrace();
 			return Response.status(400).entity("Database error. Check SystemLog.txt").build();			
 		}
 	}

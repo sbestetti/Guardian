@@ -1,9 +1,12 @@
 package com.system.sensor.model;
 
+import java.util.Date;
+
 public class Event {
 	
 	private Long sensorId;
 	private Long tag;
+	private Date timestamp;
 	
 	//Getters & Setters
 	public Long getSensorId() {
@@ -17,6 +20,12 @@ public class Event {
 	}
 	public void setTag(Long tag) {
 		this.tag = tag;
+	}
+	public Date getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 }

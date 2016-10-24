@@ -1,6 +1,10 @@
 package com.guardian.business.mb;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -26,6 +30,8 @@ public class StudyClassBean {
 	private StudyClassDao classDao;
 	
 	private StudyClass classToAdd = new StudyClass();
+	private Date start;
+	private Date end;
 	private DualListModel<Student> studentListModel = new DualListModel<>();
 		
 	@PostConstruct
@@ -37,8 +43,12 @@ public class StudyClassBean {
 	}
 	
 	public String addClass() {
+		Instant instantStart = Instant.ofEpochMilli(start.getTime());
+		Instant instantEnd = Instant.ofEpochMilli(end.getTime());
+		classToAdd.setStartTime(LocalDateTime.ofInstant(instantStart, ZoneId.systemDefault()).toLocalTime());
+		classToAdd.setEndTime(LocalDateTime.ofInstant(instantEnd, ZoneId.systemDefault()).toLocalTime());
 		classDao.addStudyClass(classToAdd);
-		return "addclass.xhtml?faces-redirect=true";
+		return "main.xhtml?faces-redirect=true";
 	}
 
 	//Getters & Setters
@@ -56,6 +66,22 @@ public class StudyClassBean {
 
 	public void setStudentListModel(DualListModel<Student> studentListModel) {
 		this.studentListModel = studentListModel;
+	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public void setStart(Date start) {
+		this.start = start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
 	}
 
 }

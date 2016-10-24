@@ -1,6 +1,6 @@
 package com.guardian.business.model;
 
-import java.util.Date;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -18,9 +18,9 @@ public class StudyClass {
 	
 	private String description;
 	
-	private Date startTime;
+	private LocalTime startTime;
 	
-	private Date endTime;
+	private LocalTime endTime;
 	
 	@OneToMany (mappedBy = "studyClass")
 	private List<Student> students;
@@ -42,19 +42,19 @@ public class StudyClass {
 		this.description = description;
 	}
 
-	public Date getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public LocalTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(LocalTime endTime) {
 		this.endTime = endTime;
 	}
 

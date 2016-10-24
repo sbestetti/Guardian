@@ -18,10 +18,10 @@
 					<h:inputText id="name" value="#{studyClassBean.classToAdd.description}"></h:inputText>
 					<br></br>
 					<p:outputLabel for="startTime" value="Horário de início"></p:outputLabel>
-					<p:calendar id="startTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.classToAdd.startTime}"></p:calendar>
+					<p:calendar id="startTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.start}"></p:calendar>
 					<br></br>
 					<p:outputLabel for="endTime" value="Horário de término"></p:outputLabel>
-					<p:calendar id="endTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.classToAdd.endTime}"></p:calendar>
+					<p:calendar id="endTime" pattern="HH:mm" timeOnly="true" value="#{studyClassBean.end}"></p:calendar>
 					<br></br>
 					<p:outputLabel for="studentsToAdd" value="Alunos"></p:outputLabel>
 					<p:pickList id="studentsToAdd" value="#{studyClassBean.studentListModel}" var="student" itemLabel="#{student.name}" itemValue="#{student}"></p:pickList>
